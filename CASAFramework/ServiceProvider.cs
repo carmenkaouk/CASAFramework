@@ -5,18 +5,18 @@ namespace CASAFramework;
 public class ServiceProvider
 {
     private Dictionary<Type, Type> _TypeResolutionDictionary = new Dictionary<Type, Type>();
-    private Dictionary <Type, Object> _singeltons = new Dictionary <Type, Object> ();
+    private Dictionary <Type, Object> _singletonsContainer = new Dictionary <Type, Object> ();
     public object? getService(Type InterfaceType)
     {
         Type ConcreteType = ConcreteTypeResolution(InterfaceType);
-        if (_singeltons.ContainsKey(ConcreteType))
+        if (_singletonsContainer.ContainsKey(ConcreteType))
         {
-            if (_singeltons[ConcreteType] == null)
+            if (_singletonsContainer[ConcreteType] == null)
             {
                 object? service = CreateByReflectionRecursive(ConcreteType);
-                _singeltons[ConcreteType] = service; 
+                _singletonsContainer[ConcreteType] = service; 
             }
-            return _singeltons[ConcreteType];
+            return _singletonsContainer[ConcreteType];
         }
         else
         {
@@ -55,7 +55,7 @@ public class ServiceProvider
     public ServiceProvider AddSingleton<T, K>()
     {
         _TypeResolutionDictionary[typeof(K)] = typeof(T);
-        _singeltons[typeof(T)] = null; 
+        _singletonsContainer[typeof(T)] = null; 
         return this; 
     }
 

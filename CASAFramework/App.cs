@@ -9,9 +9,9 @@ public class App
     private List<BaseMiddleware> _middlewares = new();
 
 
-    public void AddMiddleware(BaseMiddleware middelware)
+    public void AddMiddleware(BaseMiddleware middleware)
     {
-        _middlewares.Add(middelware);
+        _middlewares.Add(middleware);
     }
 
     public void AddMiddlewares(List<BaseMiddleware> middelwares)
@@ -46,16 +46,15 @@ public class App
             {
                 throw new Exception("Invalid middleware order");
             }
-        }
-
-        for (int i = 1; i < _middlewares.Count; i++)
-        {
-            var prerequisite = _middlewares.GetRange(0, i).FirstOrDefault(x => _middlewares[i].Prerequisite == x.GetType());
-            if (prerequisite == null)
+            if (_middlewares[i].Prerequisite != null)
             {
-                throw new Exception("Middleware missing");
-            }
+                var prerequisite = _middlewares.GetRange(0, i).FirstOrDefault(x => _middlewares[i].Prerequisite == x.GetType());
+                if (prerequisite == null)
+                {
+                    throw new Exception("Middleware missing");
+                }
 
+            }
         }
     }
 
