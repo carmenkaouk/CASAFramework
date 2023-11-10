@@ -4,30 +4,30 @@ namespace CASAFramework;
 
 public class ServiceProvider
 {
-    private Dictionary<Type, Type> _TypeResolutionDictionary = new Dictionary<Type, Type>();
-    private Dictionary <Type, Object> _singletonsContainer = new Dictionary <Type, Object> ();
-    public object? getService(Type InterfaceType)
+    private Dictionary<Type, Type> _typeResolutionDictionary = new Dictionary<Type, Type>();
+    private Dictionary <Type, object> _singletonsContainer = new Dictionary <Type, object> ();
+    public object? GetService(Type interfaceType)
     {
-        Type ConcreteType = ConcreteTypeResolution(InterfaceType);
-        if (_singletonsContainer.ContainsKey(ConcreteType))
+        Type concreteType = ConcreteTypeResolution(interfaceType);
+        if (_singletonsContainer.ContainsKey(concreteType))
         {
-            if (_singletonsContainer[ConcreteType] == null)
+            if (_singletonsContainer[concreteType] == null)
             {
-                object? service = CreateByReflectionRecursive(ConcreteType);
-                _singletonsContainer[ConcreteType] = service; 
+                object? service = CreateByReflectionRecursive(concreteType);
+                _singletonsContainer[concreteType] = service; 
             }
-            return _singletonsContainer[ConcreteType];
+            return _singletonsContainer[concreteType];
         }
         else
         {
-            return CreateByReflectionRecursive(ConcreteType);
+            return CreateByReflectionRecursive(concreteType);
         }
 
     }
-    public object? CreateByReflectionRecursive(Type ConcreteType)
+    public object? CreateByReflectionRecursive(Type concreteType)
     {
         //Get constructor 
-        ConstructorInfo constructor = ConcreteType.GetConstructors().FirstOrDefault();
+        ConstructorInfo constructor = concreteType.GetConstructors().FirstOrDefault();
 
         if (constructor != null)
         {
@@ -38,30 +38,30 @@ public class ServiceProvider
             foreach (ParameterInfo parameter in parametersInfo)
             {
                 Type parameterType = parameter.ParameterType;
-                parameters.Add(getService(parameterType));
+                parameters.Add(GetService(parameterType));
 
             }
             //invoke constructor
-            return Activator.CreateInstance(ConcreteType, parameters.ToArray());
+            return Activator.CreateInstance(concreteType, parameters.ToArray());
         }
         return null; 
     }
 
-    public Type ConcreteTypeResolution (Type InterfaceType)
+    public Type ConcreteTypeResolution (Type interfaceType)
     {
-        return _TypeResolutionDictionary[InterfaceType];
+        return _typeResolutionDictionary[interfaceType];
     }
 
     public ServiceProvider AddSingleton<T, K>()
     {
-        _TypeResolutionDictionary[typeof(K)] = typeof(T);
+        _typeResolutionDictionary[typeof(K)] = typeof(T);
         _singletonsContainer[typeof(T)] = null; 
         return this; 
     }
 
     public ServiceProvider AddTransient<T, K>()
     {
-        _TypeResolutionDictionary[typeof(K)] = typeof(T);
+        _typeResolutionDictionary[typeof(K)] = typeof(T);
         return this; 
     }
 
