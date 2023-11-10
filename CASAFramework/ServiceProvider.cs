@@ -54,14 +54,14 @@ public class ServiceProvider
 
     public ServiceProvider AddSingleton<T, K>()
     {
-        _typeResolutionDictionary[typeof(K)] = typeof(T);
-        _singletonsContainer[typeof(T)] = null; 
+        _typeResolutionDictionary[typeof(T)] = typeof(K);
+        _singletonsContainer[typeof(K)] = null; 
         return this; 
     }
 
     public ServiceProvider AddTransient<T, K>()
     {
-        _typeResolutionDictionary[typeof(K)] = typeof(T);
+        _typeResolutionDictionary[typeof(T)] = typeof(K);
         return this; 
     }
 
