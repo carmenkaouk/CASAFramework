@@ -8,6 +8,6 @@ namespace CASAFramework.Interfaces;
 public interface IListener
 {
     event EventHandler<CommunicationEventArgs> OnRequestReceived;
-    void StartListening(ListeningOptionBuilder builder);
+    void StartListening();
 
 }

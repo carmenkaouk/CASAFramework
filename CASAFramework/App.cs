@@ -13,8 +13,7 @@ public class App
     private List<BaseMiddleware> _middlewares = new List<BaseMiddleware> (){new RoutingMiddleware(),
                                                 new ParameterExtractionMiddleware(),
                                                 new ExceptionHandlingMiddleware(),
-                                                new EndpointMiddleware()};
-    private ListeningOptionBuilder _listeningOptions = new(); 
+                                                new EndpointMiddleware()}; 
 
    
     public void AddAuthorization(AuthorizationOptionBuilder optionsBuilder)
@@ -41,13 +40,9 @@ public class App
         headMiddleware.Process(context); 
     }
 
-    public void SetListenerOptions(ListeningOptionBuilder optionBuilder)
-    {
-        _listeningOptions = optionBuilder;
-    }
     public void Run()
     {
-        _listener.StartListening(_listeningOptions);
+        _listener.StartListening();
       
     }
 
