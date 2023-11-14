@@ -1,71 +1,62 @@
 ﻿using CASAFramework.BaseClasses;
 using CASAFramework.Interfaces;
+using CASAFramework.Middlewares;
+using CASAFramework.Options;
+using CASAFramework.RequestResponse;
 using Microsoft.Extensions.Configuration;
 
 namespace CASAFramework;
 
 public class App
 {
-    private IListener _listener;
-    private IConfiguration _configeration;
+    private IListener _listener; 
     private List<BaseMiddleware> _middlewares = new();
+    private ListeningOptionBuilder _listeningOptions = new(); 
 
-
-    public void AddMiddleware(BaseMiddleware middleware)
+   
+    public void AddAuthorization(AuthorizationOptionBuilder optionsBuilder)
     {
-        _middlewares.Add(middleware);
+        _middlewares.Add(new AuthorizationMiddleware(optionsBuilder)); 
     }
-
-    public void AddMiddlewares(List<BaseMiddleware> middelwares)
+    public void AddAuthentication(AuthenticationOptionBuilder optionsBuilder)
     {
-        _middlewares.AddRange(middelwares);
-    }
+        _middlewares.Add(new AuthenticationMiddleware(optionsBuilder));
 
-    public void AddListener(IListener listener)
+    }
+    public void SetListener(IListener listener)
     {
         _listener = listener;
-        _listener.AddDefaultMiddlewares(_middlewares);
+        _listener.OnRequestReceived += HandleRequest; 
     }
 
-    public void AddConfiguration(IConfiguration configuration)
+    private void HandleRequest(object sender, CommunicationEventArgs communicationArg)
     {
-        _configeration = configuration;
+        BaseMiddleware headMiddleware = BuildPipeline();
+        Context context = new Context();
+        context.Add("Request", communicationArg.Request);
+        context.Add("Response", communicationArg.Response); 
+        headMiddleware.Process(context);
     }
 
+    public void SetListenerOptions(ListeningOptionBuilder optionBuilder)
+    {
+        _listeningOptions = optionBuilder;
+    }
     public void Run()
     {
-        ValidateMiddlewares();
-        BaseMiddleware headMiddleware = BuildPipeline();
-        _listener.StartListening(_configeration, headMiddleware);
-
-    }
-
-    private void ValidateMiddlewares()
-    {
-        for (int i = 1; i < _middlewares.Count; i++)
-        {
-            if (_middlewares[i - 1].Priority > _middlewares[i].Priority)
-            {
-                throw new Exception("Invalid middleware order");
-            }
-            if (_middlewares[i].Prerequisite != null)
-            {
-                var prerequisite = _middlewares.GetRange(0, i).FirstOrDefault(x => _middlewares[i].Prerequisite == x.GetType());
-                if (prerequisite == null)
-                {
-                    throw new Exception("Middleware missing");
-                }
-
-            }
-        }
+        _listener.StartListening(_listeningOptions);
+      
     }
 
     private BaseMiddleware BuildPipeline()
     {
+        _middlewares.Sort();
         for (int i = 0; i < _middlewares.Count - 1; i++)
         {
             _middlewares[i].SetNext(_middlewares[i + 1]);
         }
         return _middlewares[0];
     }
+    
 }
+

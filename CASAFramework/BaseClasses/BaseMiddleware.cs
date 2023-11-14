@@ -1,9 +1,8 @@
 ﻿namespace CASAFramework.BaseClasses;
 
-public abstract class BaseMiddleware
+public abstract class BaseMiddleware :IComparable<BaseMiddleware>
 {
     public int Priority { get; }
-    public Type Prerequisite { get; }
     public BaseMiddleware Next { get; set; }
 
     public void SetNext(BaseMiddleware middleware)
@@ -13,4 +12,8 @@ public abstract class BaseMiddleware
 
     public abstract Context Process(Context context);
 
+    public int CompareTo(BaseMiddleware other)
+    {
+        return (Priority - other.Priority); 
+    }
 }
