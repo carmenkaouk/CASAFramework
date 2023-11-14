@@ -12,7 +12,7 @@ namespace CASAFramework.Middlewares
             this.optionsBuilder = optionsBuilder;
         }
 
-        public override Context Process(Context context)
+        public override void Process(Context context)
         {
             throw new NotImplementedException();
         }

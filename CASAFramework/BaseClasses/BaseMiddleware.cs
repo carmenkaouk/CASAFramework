@@ -10,7 +10,7 @@ public abstract class BaseMiddleware :IComparable<BaseMiddleware>
         Next = middleware;
     }
 
-    public abstract Context Process(Context context);
+    public abstract void Process(Context context);
 
     public int CompareTo(BaseMiddleware other)
     {

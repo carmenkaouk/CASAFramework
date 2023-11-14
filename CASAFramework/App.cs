@@ -9,8 +9,11 @@ namespace CASAFramework;
 
 public class App
 {
-    private IListener _listener; 
-    private List<BaseMiddleware> _middlewares = new();
+    private IListener _listener;
+    private List<BaseMiddleware> _middlewares = new List<BaseMiddleware> (){new RoutingMiddleware(),
+                                                new ParameterExtractionMiddleware(),
+                                                new ExceptionHandlingMiddleware(),
+                                                new EndpointMiddleware()};
     private ListeningOptionBuilder _listeningOptions = new(); 
 
    
@@ -35,7 +38,7 @@ public class App
         Context context = new Context();
         context.Add("Request", communicationArg.Request);
         context.Add("Response", communicationArg.Response); 
-        headMiddleware.Process(context);
+        headMiddleware.Process(context); 
     }
 
     public void SetListenerOptions(ListeningOptionBuilder optionBuilder)
