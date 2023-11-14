@@ -1,9 +1,9 @@
-﻿namespace CASAFramework;
+﻿namespace CASAFramework.BaseClasses;
 
 public abstract class BaseMiddleware
 {
     public int Priority { get; }
-    public Type Prerequisite {  get; }  
+    public Type Prerequisite { get; }
     public BaseMiddleware Next { get; set; }
 
     public void SetNext(BaseMiddleware middleware)

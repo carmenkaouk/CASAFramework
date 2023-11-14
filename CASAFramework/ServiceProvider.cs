@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 
-namespace CASAFramework; 
+namespace CASAFramework;
 
 public class ServiceProvider
 {
     private Dictionary<Type, Type> _typeResolutionDictionary = new Dictionary<Type, Type>();
-    private Dictionary <Type, object> _singletonsContainer = new Dictionary <Type, object> ();
+    private Dictionary<Type, object> _singletonsContainer = new Dictionary<Type, object>();
     public object? GetService(Type interfaceType)
     {
         Type concreteType = ConcreteTypeResolution(interfaceType);
@@ -14,7 +14,7 @@ public class ServiceProvider
             if (_singletonsContainer[concreteType] == null)
             {
                 object? service = CreateByReflectionRecursive(concreteType);
-                _singletonsContainer[concreteType] = service; 
+                _singletonsContainer[concreteType] = service;
             }
             return _singletonsContainer[concreteType];
         }
@@ -44,10 +44,10 @@ public class ServiceProvider
             //invoke constructor
             return Activator.CreateInstance(concreteType, parameters.ToArray());
         }
-        return null; 
+        return null;
     }
 
-    public Type ConcreteTypeResolution (Type interfaceType)
+    public Type ConcreteTypeResolution(Type interfaceType)
     {
         return _typeResolutionDictionary[interfaceType];
     }
@@ -55,14 +55,14 @@ public class ServiceProvider
     public ServiceProvider AddSingleton<T, K>()
     {
         _typeResolutionDictionary[typeof(T)] = typeof(K);
-        _singletonsContainer[typeof(K)] = null; 
-        return this; 
+        _singletonsContainer[typeof(K)] = null;
+        return this;
     }
 
     public ServiceProvider AddTransient<T, K>()
     {
         _typeResolutionDictionary[typeof(T)] = typeof(K);
-        return this; 
+        return this;
     }
 
 

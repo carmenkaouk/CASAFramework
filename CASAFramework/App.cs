@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CASAFramework.BaseClasses;
+using CASAFramework.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace CASAFramework;
 
