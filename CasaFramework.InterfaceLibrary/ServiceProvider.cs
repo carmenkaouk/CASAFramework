@@ -4,8 +4,11 @@ namespace CasaFramework.InterfaceLibrary;
 
 public class ServiceProvider
 {
-    private Dictionary<Type, Type> _typeResolutionDictionary = new Dictionary<Type, Type>();
-    private Dictionary<Type, object> _singletonsContainer = new Dictionary<Type, object>();
+    private Dictionary<Type, Type> _typeResolutionDictionary = 
+                                    new Dictionary<Type, Type>();
+
+    private Dictionary<Type, object> _singletonsContainer =
+                                    new Dictionary<Type, object>();
     public object? GetService(Type interfaceType)
     {
         Type concreteType = ConcreteTypeResolution(interfaceType);

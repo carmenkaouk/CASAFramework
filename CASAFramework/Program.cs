@@ -1,8 +1,6 @@
 ﻿
 // See https://aka.ms/new-console-template for more information
 
-
-using CASAFramework;
 using Microsoft.Extensions.Configuration;
 using CASAFramework.Senders.FileExtension.ExtensionMethods;
 using CasaFramework.InterfaceLibrary;
