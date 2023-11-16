@@ -8,27 +8,31 @@ using CASAFramework.Interfaces;
 
 namespace CASAFramework.Senders.FileExtension
 {
-    internal class FileRequestWrapper : IRequest
+    public class FileRequestWrapper : IRequest
     {
-        private  FileRequest request; 
+        private  FileRequest _request;
+        public FileRequestWrapper(FileRequest request)
+        {
+            _request = request;
+        }
         public Dictionary<string, object> GetContent()
         {
-            return request.Content;
+            return _request.Content;
         }
 
         public string GetToken()
         {
-            return request.Token;
+            return _request.Token;
         }
 
         public string GetUri()
         {
-            return request.Uri; 
+            return _request.Uri; 
         }
 
         public string GetUsername()
         {
-            return request.SenderUsername; 
+            return _request.SenderUsername; 
         }
     }
 }

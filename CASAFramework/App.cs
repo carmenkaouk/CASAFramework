@@ -48,12 +48,12 @@ public class App
 
     private BaseMiddleware BuildPipeline()
     {
-        _middlewares.Sort();
-        for (int i = 0; i < _middlewares.Count - 1; i++)
+        var sortedMiddlewares = _middlewares.OrderBy(c=> c.Priority).ToList();
+        for (int i = 0; i < sortedMiddlewares.Count - 1; i++)
         {
-            _middlewares[i].SetNext(_middlewares[i + 1]);
+            sortedMiddlewares[i].SetNext(_middlewares[i + 1]);
         }
-        return _middlewares[0];
+        return sortedMiddlewares[0];
     }
     
 }

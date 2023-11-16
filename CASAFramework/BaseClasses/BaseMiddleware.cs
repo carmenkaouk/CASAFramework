@@ -1,6 +1,6 @@
 ﻿namespace CASAFramework.BaseClasses;
 
-public abstract class BaseMiddleware :IComparable<BaseMiddleware>
+public abstract class BaseMiddleware 
 {
     public int Priority { get; }
     public BaseMiddleware Next { get; set; }
@@ -12,8 +12,4 @@ public abstract class BaseMiddleware :IComparable<BaseMiddleware>
 
     public abstract void Process(Context context);
 
-    public int CompareTo(BaseMiddleware other)
-    {
-        return (Priority - other.Priority); 
-    }
 }

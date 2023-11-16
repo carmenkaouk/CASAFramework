@@ -2,7 +2,7 @@
 
 namespace CASAFramework.Senders.FileExtension
 {
-    internal class FileResponse
+    public class FileResponse
     {
         public Guid RequestId { get; set; }
         public StatusCode StatusCode { get; set; }

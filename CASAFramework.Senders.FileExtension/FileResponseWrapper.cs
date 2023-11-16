@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace CASAFramework.Senders.FileExtension
 {
-    internal class FileResponseWrapper : IResponse
+    public  class FileResponseWrapper : IResponse
     {
         private FileResponse _response;
-        // 
+
+        public FileResponseWrapper(FileResponse response)
+        {
+            _response = response;
+        }
 
         public void SendResponse()
         {

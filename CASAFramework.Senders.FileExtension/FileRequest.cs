@@ -1,6 +1,6 @@
 ﻿namespace CASAFramework.Senders.FileExtension
 {
-    internal class FileRequest
+    public class FileRequest
     {
         public Guid RequestId { get; set; } = Guid.NewGuid();
 
