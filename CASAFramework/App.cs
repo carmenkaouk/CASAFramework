@@ -1,7 +1,6 @@
 ﻿using CASAFramework.BaseClasses;
 using CASAFramework.Interfaces;
 using CASAFramework.Middlewares;
-using CASAFramework.Options;
 using CASAFramework.RequestResponse;
 using Microsoft.Extensions.Configuration;
 
@@ -16,13 +15,13 @@ public class App
                                                 new EndpointMiddleware()}; 
 
    
-    public void AddAuthorization(AuthorizationOptionBuilder optionsBuilder)
+    public void AddAuthorization()
     {
-        _middlewares.Add(new AuthorizationMiddleware(optionsBuilder)); 
+        _middlewares.Add(new AuthorizationMiddleware()); 
     }
-    public void AddAuthentication(AuthenticationOptionBuilder optionsBuilder)
+    public void AddAuthentication()
     {
-        _middlewares.Add(new AuthenticationMiddleware(optionsBuilder));
+        _middlewares.Add(new AuthenticationMiddleware());
 
     }
     public void SetListener(IListener listener)

@@ -1,5 +1,4 @@
-﻿
-namespace CASAFramework;
+﻿namespace CASAFramework;
 
 public class Context
 {

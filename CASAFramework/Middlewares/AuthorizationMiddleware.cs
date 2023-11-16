@@ -1,20 +1,11 @@
 ﻿using CASAFramework.BaseClasses;
-using CASAFramework.Options;
 
-namespace CASAFramework.Middlewares
+namespace CASAFramework.Middlewares;
+
+internal class AuthorizationMiddleware : BaseMiddleware
 {
-    internal class AuthorizationMiddleware : BaseMiddleware
+    public override void Process(Context context)
     {
-        private AuthorizationOptionBuilder optionsBuilder;
-
-        public AuthorizationMiddleware(AuthorizationOptionBuilder optionsBuilder)
-        {
-            this.optionsBuilder = optionsBuilder;
-        }
-
-        public override void Process(Context context)
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
     }
 }

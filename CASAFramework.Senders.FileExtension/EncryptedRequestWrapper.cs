@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CASAFramework.Senders.FileExtension
+namespace CASAFramework.Senders.FileExtension;
+
+internal class EncryptedRequestWrapper
 {
-    internal class EncryptedRequestWrapper
-    {
-        public byte[] EncryptedRequest;
-        public byte[] Iv;
-        public byte[] EncryptedSymmetricKey;
-    }
+    public byte[] EncryptedRequest;
+    public byte[] Iv;
+    public byte[] EncryptedSymmetricKey;
 }
