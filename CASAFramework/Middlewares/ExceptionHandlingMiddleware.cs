@@ -21,7 +21,7 @@ namespace CASAFramework.Middlewares
             {
                 IResponse response = ((IResponse)context.Get("Response")); 
                 response.SetException(e);
-                response.SendResponse();
+                
             }
 
         }

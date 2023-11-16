@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 
 namespace CASAFramework.Senders.FileExtension
@@ -15,8 +16,8 @@ namespace CASAFramework.Senders.FileExtension
     {
         private readonly string _path;
         private byte[] _symmetricKey;
-        private byte[] _iv; 
-
+        private byte[] _iv;
+        private string _username;
         public event EventHandler<CommunicationEventArgs> OnRequestReceived;
         public FileListener(string path)
         {
@@ -25,8 +26,9 @@ namespace CASAFramework.Senders.FileExtension
         }
         public FileSystemWatcher WatchRequests()
         {
-            FileService.ValidatePath(_path);
-            var watchRequestFile = new FileSystemWatcher(_path!);
+            string fullPath = Path.Combine(_path,"Requests");
+            FileService.ValidatePath(fullPath);
+            var watchRequestFile = new FileSystemWatcher(fullPath);
             watchRequestFile.IncludeSubdirectories = false;
             watchRequestFile.Created += HandleRequests;
             watchRequestFile.EnableRaisingEvents = true;
@@ -36,7 +38,8 @@ namespace CASAFramework.Senders.FileExtension
         private void HandleRequests(object sender, FileSystemEventArgs e)
         { 
             string wrappedRequestAsJson = FileService.ReadFile(e.FullPath);
-            FileRequest request = PrepareRequest(wrappedRequestAsJson); 
+            FileRequest request = PrepareRequest(wrappedRequestAsJson);
+            _username = request.SenderUsername;
             CommunicationEventArgs args = new CommunicationEventArgs();
             args.Response = new FileResponseWrapper(new FileResponse());
             args.Request = new FileRequestWrapper(request);
@@ -70,12 +73,21 @@ namespace CASAFramework.Senders.FileExtension
         {
             return JsonConvert.DeserializeObject<EncryptedRequestWrapper>(wrappedRequestAsJson); 
         }
-
         public void StartListening()
         {
             FileSystemWatcher watcher = WatchRequests();
             Console.ReadLine(); 
         }
+        public void SendResponse(IResponse response)
+        {
+            //serilization
+            string serilizedResponse = JsonConvert.SerializeObject(response);
+            //Encryption 
+            byte[] encryptedResposne = AesEncryption.Encrypt(UTF8Encoding.UTF8.GetBytes(serilizedResponse),_symmetricKey,_iv);
+            //writing 
+            FileService.WriteByteArray(Path.Combine(_path, _username), encryptedResposne);
+        }
+
 
     }
 }

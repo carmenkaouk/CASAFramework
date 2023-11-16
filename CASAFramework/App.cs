@@ -37,7 +37,8 @@ public class App
         Context context = new Context();
         context.Add("Request", communicationArg.Request);
         context.Add("Response", communicationArg.Response); 
-        headMiddleware.Process(context); 
+        headMiddleware.Process(context);
+        _listener.SendResponse(communicationArg.Response);
     }
 
     public void Run()

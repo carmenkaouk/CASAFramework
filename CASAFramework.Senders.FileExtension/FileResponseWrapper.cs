@@ -16,13 +16,6 @@ namespace CASAFramework.Senders.FileExtension
         {
             _response = response;
         }
-
-        public void SendResponse()
-        {
-            // i don't know how i will do i  need to think about it. 
-            throw new NotImplementedException();
-        }
-
         public void SetException(Exception exception)
         {
             _response.ExceptionMessage= exception.ToString();

@@ -28,7 +28,7 @@ namespace CASAFramework.Middlewares
             IResponse response = (IResponse)context.Get("IResponse");
             response.SetStatusCode(StatusCode.Success);
             response.SetResponseContent(responseContent); 
-            response.SendResponse();
+          
 
         }
     }
