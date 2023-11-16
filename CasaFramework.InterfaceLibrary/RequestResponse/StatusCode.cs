@@ -1,4 +1,4 @@
-﻿namespace CASAFramework.RequestResponse;
+﻿namespace CasaFramework.InterfaceLibrary.RequestResponse;
 
 public enum StatusCode
 {

@@ -1,10 +1,12 @@
-﻿using CASAFramework.BaseClasses;
-using CASAFramework.Interfaces;
-using CASAFramework.Middlewares;
-using CASAFramework.RequestResponse;
-using Microsoft.Extensions.Configuration;
+﻿
+using CasaFramework.InterfaceLibrary;
+using CasaFramework.InterfaceLibrary.BaseClasses;
+using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.InterfaceLibrary.RequestResponse;
+using CasaFramework.InterfaceLibrary.Middlewares;
 
-namespace CASAFramework;
+
+namespace CasaFramework.InterfaceLibrary;
 
 public class App
 {

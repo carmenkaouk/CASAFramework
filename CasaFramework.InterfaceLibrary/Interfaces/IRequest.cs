@@ -1,4 +1,4 @@
-﻿namespace CASAFramework.Interfaces;
+﻿namespace CasaFramework.InterfaceLibrary.Interfaces;
 
 public interface IRequest
 {

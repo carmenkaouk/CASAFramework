@@ -1,4 +1,4 @@
-﻿using CASAFramework.RequestResponse;
+﻿using CasaFramework.InterfaceLibrary.RequestResponse;
 
 namespace CASAFramework.Senders.FileExtension;
 

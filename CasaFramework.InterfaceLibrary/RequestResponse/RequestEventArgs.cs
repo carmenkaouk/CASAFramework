@@ -1,6 +1,6 @@
-﻿using CASAFramework.Interfaces;
+﻿using CasaFramework.InterfaceLibrary.Interfaces;
 
-namespace CASAFramework.RequestResponse;
+namespace CasaFramework.InterfaceLibrary.RequestResponse;
 
 public class CommunicationEventArgs : EventArgs
 {

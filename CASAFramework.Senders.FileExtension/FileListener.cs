@@ -1,5 +1,5 @@
-﻿using CASAFramework.Interfaces;
-using CASAFramework.RequestResponse;
+﻿using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.InterfaceLibrary.RequestResponse;
 using CASAFramework.Senders.FileExtension.FileServices;
 using Newtonsoft.Json;
 using SharedLibrary.Encryption;

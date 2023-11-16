@@ -1,10 +1,6 @@
-﻿using CASAFramework.Interfaces;
-using CASAFramework.RequestResponse;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.InterfaceLibrary.RequestResponse;
+
 
 namespace CASAFramework.Senders.FileExtension;
 

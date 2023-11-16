@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace CASAFramework;
+namespace CasaFramework.InterfaceLibrary;
 
 public class ServiceProvider
 {

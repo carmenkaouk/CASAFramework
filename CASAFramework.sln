@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CASAFramework", "CASAFramework\CASAFramework.csproj", "{CB081F47-4704-48D7-B32E-E5B098DC60BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CASAFramework.Senders.FileExtension", "CASAFramework.Senders.FileExtension\CASAFramework.Senders.FileExtension.csproj", "{387CD696-FA81-4A86-AE78-A853ADA6BA3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CASAFramework.Senders.FileExtension", "CASAFramework.Senders.FileExtension\CASAFramework.Senders.FileExtension.csproj", "{387CD696-FA81-4A86-AE78-A853ADA6BA3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasaFramework.InterfaceLibrary", "CasaFramework.InterfaceLibrary\CasaFramework.InterfaceLibrary.csproj", "{CEB0DAB2-5131-4513-B4CF-D90851631DB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{387CD696-FA81-4A86-AE78-A853ADA6BA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{387CD696-FA81-4A86-AE78-A853ADA6BA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{387CD696-FA81-4A86-AE78-A853ADA6BA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB0DAB2-5131-4513-B4CF-D90851631DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB0DAB2-5131-4513-B4CF-D90851631DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB0DAB2-5131-4513-B4CF-D90851631DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB0DAB2-5131-4513-B4CF-D90851631DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

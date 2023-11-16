@@ -1,4 +1,6 @@
-﻿namespace CASAFramework.BaseClasses;
+﻿
+
+namespace CasaFramework.InterfaceLibrary.BaseClasses;
 
 public abstract class BaseMiddleware 
 {

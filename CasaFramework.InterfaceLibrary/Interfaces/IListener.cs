@@ -1,8 +1,6 @@
-﻿using CASAFramework.BaseClasses;
-using CASAFramework.RequestResponse;
-using Microsoft.Extensions.Configuration;
+﻿using CasaFramework.InterfaceLibrary.RequestResponse;
 
-namespace CASAFramework.Interfaces;
+namespace CasaFramework.InterfaceLibrary.Interfaces;
 
 public interface IListener
 {

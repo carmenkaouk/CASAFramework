@@ -1,6 +1,8 @@
-﻿using CASAFramework.RequestResponse;
+﻿
 
-namespace CASAFramework.Interfaces; 
+using CasaFramework.InterfaceLibrary.RequestResponse;
+
+namespace CasaFramework.InterfaceLibrary.Interfaces; 
 
 public interface IResponse
 {

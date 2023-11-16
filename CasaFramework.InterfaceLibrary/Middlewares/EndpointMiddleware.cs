@@ -1,14 +1,11 @@
-﻿using CASAFramework.BaseClasses;
-using CASAFramework.Interfaces;
-using CASAFramework.RequestResponse;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using CasaFramework.InterfaceLibrary;
+using CasaFramework.InterfaceLibrary.BaseClasses;
+using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.InterfaceLibrary.RequestResponse;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CASAFramework.Middlewares;
+
+namespace CasaFramework.InterfaceLibrary.Middlewares;
 
 internal class EndpointMiddleware : BaseMiddleware
 {
