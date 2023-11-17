@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CASAFramework", "CASAFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CASAFramework.Senders.FileExtension", "CASAFramework.Senders.FileExtension\CASAFramework.Senders.FileExtension.csproj", "{387CD696-FA81-4A86-AE78-A853ADA6BA3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasaFramework.InterfaceLibrary", "CasaFramework.InterfaceLibrary\CasaFramework.InterfaceLibrary.csproj", "{CEB0DAB2-5131-4513-B4CF-D90851631DB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CASAFramework.MainLibrary", "CasaFramework.InterfaceLibrary\CASAFramework.MainLibrary.csproj", "{CEB0DAB2-5131-4513-B4CF-D90851631DB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

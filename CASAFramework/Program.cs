@@ -3,7 +3,7 @@
 
 using Microsoft.Extensions.Configuration;
 using CASAFramework.Senders.FileExtension.ExtensionMethods;
-using CasaFramework.InterfaceLibrary;
+using CasaFramework.MainLibrary;
 
 
 //configuration

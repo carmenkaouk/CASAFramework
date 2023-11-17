@@ -1,9 +1,9 @@
-﻿using CasaFramework.InterfaceLibrary;
-using CasaFramework.InterfaceLibrary.BaseClasses;
-using CasaFramework.InterfaceLibrary.Interfaces;
+﻿using CasaFramework.MainLibrary;
+using CasaFramework.MainLibrary.BaseClasses;
+using CasaFramework.MainLibrary.Interfaces;
 
 
-namespace CasaFramework.InterfaceLibrary.Middlewares;
+namespace CasaFramework.MainLibrary.Middlewares;
 
 public class ExceptionHandlingMiddleware : BaseMiddleware
 {

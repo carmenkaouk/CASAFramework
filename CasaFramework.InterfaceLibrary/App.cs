@@ -1,11 +1,10 @@
 ﻿
-using CasaFramework.InterfaceLibrary.BaseClasses;
-using CasaFramework.InterfaceLibrary.Interfaces;
-using CasaFramework.InterfaceLibrary.RequestResponse;
-using CasaFramework.InterfaceLibrary.Middlewares;
+using CasaFramework.MainLibrary.BaseClasses;
+using CasaFramework.MainLibrary.Interfaces;
+using CasaFramework.MainLibrary.RequestResponse;
+using CasaFramework.MainLibrary.Middlewares;
 
-
-namespace CasaFramework.InterfaceLibrary;
+namespace CasaFramework.MainLibrary;
 
 public class App
 {

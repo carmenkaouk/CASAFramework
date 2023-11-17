@@ -1,13 +1,13 @@
 ﻿
-using CasaFramework.InterfaceLibrary.BaseClasses;
-using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.MainLibrary.BaseClasses;
+using CasaFramework.MainLibrary.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Reflection;
 
 
-namespace CasaFramework.InterfaceLibrary.Middlewares;
+namespace CasaFramework.MainLibrary.Middlewares;
 
 internal class ParameterExtractionMiddleware : BaseMiddleware
 {

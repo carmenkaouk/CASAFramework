@@ -1,4 +1,4 @@
-﻿namespace CasaFramework.InterfaceLibrary;
+﻿namespace CasaFramework.MainLibrary;
 
 public class Context
 {

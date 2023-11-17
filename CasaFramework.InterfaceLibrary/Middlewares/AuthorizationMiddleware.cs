@@ -1,7 +1,7 @@
 ﻿
-using CasaFramework.InterfaceLibrary.BaseClasses;
+using CasaFramework.MainLibrary.BaseClasses;
 
-namespace CasaFramework.InterfaceLibrary.Middlewares;
+namespace CasaFramework.MainLibrary.Middlewares;
 
 internal class AuthorizationMiddleware : BaseMiddleware
 {

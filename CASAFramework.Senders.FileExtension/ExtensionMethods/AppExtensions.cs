@@ -1,4 +1,4 @@
-﻿using CasaFramework.InterfaceLibrary;
+﻿using CasaFramework.MainLibrary;
 
 
 namespace CASAFramework.Senders.FileExtension.ExtensionMethods;

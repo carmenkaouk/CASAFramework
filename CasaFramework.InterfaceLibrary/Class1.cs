@@ -1,5 +1,5 @@
 ﻿
-namespace CasaFramework.InterfaceLibrary
+namespace CasaFramework.MainLibrary
 {
     internal class Class1
     {

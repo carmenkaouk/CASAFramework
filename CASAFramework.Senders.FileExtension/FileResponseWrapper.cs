@@ -1,5 +1,5 @@
-﻿using CasaFramework.InterfaceLibrary.Interfaces;
-using CasaFramework.InterfaceLibrary.RequestResponse;
+﻿using CasaFramework.MainLibrary.Interfaces;
+using CasaFramework.MainLibrary.RequestResponse;
 
 
 namespace CASAFramework.Senders.FileExtension;

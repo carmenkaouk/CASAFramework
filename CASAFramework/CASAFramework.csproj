@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CasaFramework.InterfaceLibrary\CasaFramework.InterfaceLibrary.csproj" />
+    <ProjectReference Include="..\CasaFramework.InterfaceLibrary\CASAFramework.MainLibrary.csproj" />
     <ProjectReference Include="..\CASAFramework.Senders.FileExtension\CASAFramework.Senders.FileExtension.csproj" />
   </ItemGroup>
 

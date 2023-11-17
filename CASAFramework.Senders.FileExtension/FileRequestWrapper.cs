@@ -1,5 +1,5 @@
 ﻿
-using CasaFramework.InterfaceLibrary.Interfaces;
+using CasaFramework.MainLibrary.Interfaces;
 
 namespace CASAFramework.Senders.FileExtension;
 
